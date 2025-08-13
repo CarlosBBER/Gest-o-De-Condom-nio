@@ -2,26 +2,24 @@ const express = require("express");
 const mysql = require("mysql2");
 const app = express();
 const bodyParser = require("body-parser");
-const { connect } = require("http2");
+// const { connect } = require("http2");
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-app.use(express.urlencoded({extended:true}));
+// app.use(express.urlencoded({extended:true}));
 
-const sslOptions = {
-    ca:fs.readFileSync('./BaltimoreCyberTrustRoot.crt.pem'), // Caminho para o certificado CA
+// const sslOptions = {
+//     ca:fs.readFileSync('./BaltimoreCyberTrustRoot.crt.pem'), // Caminho para o certificado CA
 
-}
+// }
 
 const connection = mysql.createConnection({
-    host: 'servidordaniel.database.windows.net', //endereço do banco de dados
-    user: 'root@', //nome do usuario do banco
-    password: 'Cedup@2025', // senha do banco
-    database: 'Condominio', // nome do banco
-    port: 3306, // porta do banco
-    ssl: sslOptions // opções de segurança
+    host: 'localhost',
+    user: 'root',
+    password: 'root',
+    database: 'gestao_condominio'
 });
 
 connection.connect(function(err){
