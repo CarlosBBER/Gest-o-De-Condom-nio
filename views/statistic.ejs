@@ -15,27 +15,30 @@
         <div class="stats-top">
             <div class="stat-card">
                 <h2>Moradores</h2>
-                <p class="stat-number"><%= morador[0]['COUNT(idmorador)'] %></p>
+                <p class="stat-number"><%= morador[0].totalMoradores %></p>
             </div>
+            
             <div class="stat-card">
                 <h2>Apartamentos</h2>
-                <p class="stat-number"><%= apartamento[0]['COUNT(idapartamento)'] %></p>
+                <p class="stat-number"><%= apartamento[0].totalApartamentos %></p>
             </div>
+            
             <div class="stat-card">
                 <h2>Blocos</h2>
-                <p class="stat-number"><%= bloco[0]['COUNT(idbloco)'] %></p>
+                <p class="stat-number"><%= bloco[0].totalBlocos %></p>
             </div>
+        
         </div>
     
         <div class="stats-bottom">
             <div class="stat-card">
                 <h2>Manutenções Pendentes</h2>
-                <p class="stat-number"><%= manutencao[0]['COUNT(idmanutencao)'] %></p>
+                <p class="stat-number"><%= manutencao[0].manutencoesPendentes %></p>
             </div>
 
             <div class="stat-card">
                 <h2>Pagamentos realizados</h2>
-                <p class="stat-number"><%= pagamento[0]['COUNT(idpagamento)'] %></p>
+                <p class="stat-number"><%= pagamento[0].pagamentosRealizados %></p>
             </div>
         </div>
     </div>
@@ -44,14 +47,13 @@
     <canvas id="moradorBlocoChart" width="400" height="200" class="chart-styled"></canvas>
     
     <script>
-        // Processa os dados que vieram do backend
-        const moradorBloco = JSON.parse('<%- JSON.stringify(moradorBloco) %>');
+        // Dados vindos do backend
+        const moradorBloco = <%- JSON.stringify(moradorBloco) %>;
 
-        const blocosMap = {};
-        moradorBloco.forEach(item => {
-            const bloco = item.nome_bloco;
-            blocosMap[bloco] = (blocosMap[bloco] || 0) + 1;
-        });
+        const blocosMap = moradorBloco.reduce((acc, item) => {
+            acc[item.nome_bloco] = (acc[item.nome_bloco] || 0) + 1;
+            return acc;
+        }, {});
 
         const labels = Object.keys(blocosMap);
         const data = Object.values(blocosMap);
@@ -68,13 +70,16 @@
                 }]
             },
             options: {
-                // responsive: true,
+                responsive: true,
                 plugins: {
                     legend: { display: false },
                     title: { display: false }
                 },
                 scales: {
-                    y: { beginAtZero: true, precision: 0 }
+                    y: {
+                        beginAtZero: true,
+                        ticks: { precision: 0 }
+                    }
                 }
             }
         });

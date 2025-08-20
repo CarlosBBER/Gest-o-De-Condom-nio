@@ -8,12 +8,6 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-// app.use(express.urlencoded({extended:true}));
-
-// const sslOptions = {
-//     ca:fs.readFileSync('./BaltimoreCyberTrustRoot.crt.pem'), // Caminho para o certificado CA
-
-// }
 
 const connection = mysql.createConnection({
     host: 'localhost',

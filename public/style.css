@@ -8,14 +8,14 @@
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     background-color: #f8f9fa; /* fundo claro */
-    color: #2c3e50; /* texto principal */
+    color: #070707; /* texto principal */
     padding: 20px;
     padding-top: 90px;
 }
 
 /* Títulos */
 h1 {
-    color: #1f618d; /* azul elegante */
+    color: #070707; /* azul elegante */
     margin-bottom: 20px;
     font-size: 2rem;
 }
@@ -23,7 +23,7 @@ h1 {
 h2 {
     margin-top: 30px;
     margin-bottom: 10px;
-    color: #34495e; /* azul escuro */
+    color: #070707; /* azul escuro */
     font-size: 1.4rem;
 }
 
@@ -97,8 +97,8 @@ th, td {
 }
 
 th {
-    background-color: #1f618d; /* azul elegante */
-    color: white;
+    background-color: #FF6699; /* azul elegante */
+    color: black;
     font-weight: 600;
 }
 
@@ -126,7 +126,7 @@ a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #1f618d; /* azul elegante */
+    background-color: #FF6699; /* azul elegante */
     border-bottom: 1px solid #ddd;
     display: flex;
     justify-content: space-between;
@@ -137,7 +137,7 @@ a:hover {
 }
 
 .navbar a {
-    color: #ffffff;
+    color: #070707;
     text-decoration: none;
     font-weight: 600;
     margin: 0 12px;
@@ -147,14 +147,14 @@ a:hover {
 }
 
 .navbar a:hover {
-    background-color: #f8f9fa; /* cinza claro */
+    background-color: #070707; /* cinza claro */
     color: #27ae60; /* verde suave */
 }
 
 .logo {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #ffffff;
+    color: #070707;
 }
 
 /* Responsividade */
